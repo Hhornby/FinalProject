@@ -3,25 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../src/style.css" />
-    <title>Weather App 🌞</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <title>Weather App</title>
   </head>
 
   <body>
     <div class="container">
-      <div class="weather-app">
+      <div class="weather-app card-body">
         <form class="search-form" id="search-form">
           <div class="row">
-            <div class="col-9">
+            <div class="col-6">
               <input
                 type="search"
-                placeholder="Type a city..."
+                placeholder="Type a city.."
                 autofocus="on"
                 autocomplete="off"
                 id="city-input"
@@ -32,52 +34,59 @@
               <input
                 type="submit"
                 value="Search"
-                class="form-control btn btn-primary shadow-sm"
+                class="form-control btn btn-primary shadow-sm w-100"
               />
+            </div>
+            <div class="col-3">
+              <button
+                class="btn btn-success w-100"
+                id="current-location-button"
+              >
+                Location
+              </button>
             </div>
           </div>
         </form>
-        <h1 id="city">Kelso, Scotland, UK</h1>
-        <ul>
-          <li id="date"></li>
-          <li>Partly Cloudy</li>
-        </ul>
         <div class="row">
-          <div class="col-8">
+          <div class="float=left">
+            <img
+              id="weatherIcon"
+              src="http://openweathermap.org/img/wn/10d@2x.png"
+            />
+          </div>
+          <div>
+            <h1 id="city"></h1>
+            <ul>
+              <li id="date"></li>
+              <li id="description"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
             <div class="clearfix">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                alt="Cloudandsun icon"
-                alt="cloudy-icon"
-                class="weather-icon float-left"
-              />
               <div class="float-left">
-                <span class="temperature" id="temperature">19</span
-                ><span class="units">
-                  <a href="#" id="celsius-link"> °C </a> |
-                  <a href="#" id="fahrenheit-link">°F</a>
-                </span>
+                <span class="temperature" id="temperature"></span
+                ><span class="units" id="units">°C</span>
+              </div>
+              <div>
+                <a href="#" id="setCel">Celsius</a> | <br /><a
+                  id="setFah"
+                  href="#"
+                  >Fahrenheit</a
+                >
               </div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <ul>
-              <li>Precipitation:3%</li>
-              <li>Humidity:74%</li>
-              <li>Wind:20mph</li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> km/h</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
     <script src="src/index.js"></script>
-    <script>
-      let firstName = prompt("What is your name?");
-      if (firstName != "") {
-        alert("Welcome, " + firstName);
-      } else {
-        alert("Too bad for you, give me your name 😭");
-      }
-    </script>
   </body>
 </html>
