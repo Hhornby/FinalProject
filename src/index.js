@@ -55,7 +55,7 @@ function searchCity(city, unit) {
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
-  searchCity(city);
+  searchCity(city, "metric");
 }
 
 function searchLocation(position) {
